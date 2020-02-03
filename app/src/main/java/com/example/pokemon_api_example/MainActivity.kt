@@ -1,6 +1,7 @@
 package com.example.pokemon_api_example
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pokemon_api_example.dto.PokemonDTO
@@ -11,6 +12,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
+
     private var allPokemon = ArrayList<PokemonDTO>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val service = RetrofitClientInstance.retrofitInstance?.create(GetPokemon::class.java)
         val call = service?.getPage()
         val pokemons = mutableListOf<PokemonDTO>()
+        var i = 1
 
         call?.enqueue(object : Callback<PokemonList> {
             override fun onFailure(call: Call<PokemonList>, t: Throwable) {
@@ -30,16 +33,22 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<PokemonList>, response: Response<PokemonList>) {
-                Toast.makeText(applicationContext, "Success", Toast.LENGTH_LONG).show()
+                Log.i("onResponse", i++.toString() + " pages parsed")
                 val body = response.body()
                 val pokemon: List<PokemonDTO>? = body?.results
 
                 if (pokemon != null) {
                     pokemons.addAll(pokemon)
                 }
+
+                if (body?.next != null)
+                {
+                    val nextCall = service.getNextPage(body.next)!!
+                    nextCall.enqueue(this)
+                }
             }
         })
 
-        assert(pokemons.size > 10)
+
     }
 }
