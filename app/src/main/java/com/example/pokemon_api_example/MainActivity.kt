@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // loading data from API
         val service = RetrofitClientInstance.retrofitInstance?.create(GetPokemon::class.java)
         val call = service?.getPage()
-        val pokemons = mutableListOf<PokemonDTO>()
         var i = 1
 
         call?.enqueue(object : Callback<PokemonList> {
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 val pokemon: List<PokemonDTO>? = body?.results
 
                 if (pokemon != null) {
-                    pokemons.addAll(pokemon)
+                    allPokemon.addAll(pokemon)
                 }
 
                 if (body?.next != null)
@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
 
 
     }
