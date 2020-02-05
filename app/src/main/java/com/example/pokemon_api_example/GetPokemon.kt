@@ -15,4 +15,7 @@ interface GetPokemon {
 
     @GET
     fun getNextPage(@Url url : String) : Call<PokemonList>?
+
+    @GET
+    fun getImage(@Url url : String) : String
 }
