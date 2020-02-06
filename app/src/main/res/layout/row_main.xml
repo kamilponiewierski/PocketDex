@@ -2,32 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_weight="100"
+    android:weightSum="100">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_gravity="fill"
+        android:textAlignment="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="90"
+        android:layout_marginVertical="2dp"
+        android:weightSum="100"
+        >
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/pokemon_name"
+            android:layout_width="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="TitleText"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginVertical="4dp"
+            android:layout_weight="50"
+            android:layout_height="20dp"
+            tools:ignore="NestedWeights" />
+
 
         <TextView
             android:id="@+id/url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="this is a longer text"
+            android:gravity="bottom"
+            android:layout_width="match_parent"
+            android:text="@string/longer_example_text"
             app:layout_constraintStart_toStartOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:layout_marginStart="16dp"
+            android:layout_weight="50"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/pokemonSprite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_weight="10"
+
+        android:contentDescription="@string/pokemon_sprite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </LinearLayout>
