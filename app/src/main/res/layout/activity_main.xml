@@ -25,5 +25,14 @@
             android:layout_below="@+id/editText"
             android:layout_marginTop="10dp"
             android:autofillHints='"no"' />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_bar"
+            android:layout_centerInParent="true"
+            android:visibility="invisible">
+        </ProgressBar>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
