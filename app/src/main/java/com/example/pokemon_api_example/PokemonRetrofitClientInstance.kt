@@ -3,7 +3,7 @@ package com.example.pokemon_api_example
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClientInstance{
+object PokemonRetrofitClientInstance{
 
     private var retrofit : Retrofit? = null
     private const val BASE_URL = "https://pokeapi.co/"
