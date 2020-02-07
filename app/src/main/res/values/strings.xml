@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PocketDex</string>
+    <string name="search_hint">Search through Pokémons…</string>
+    <string name="longer_example_text">This is a longer example text</string>
+    <string name="pokemon_name">Pokémon name</string>
+    <string name="pokemon_sprite">pokemon sprite</string>
+    <string name="pokedex_number">"Pokédex # "</string>
+</resources>
