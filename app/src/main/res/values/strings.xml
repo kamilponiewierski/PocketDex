@@ -4,5 +4,6 @@
     <string name="longer_example_text">This is a longer example text</string>
     <string name="pokemon_name">Pokémon name</string>
     <string name="pokemon_sprite">pokemon sprite</string>
-    <string name="pokedex_number">"Pokédex # "</string>
+    <string name="pokedex_number">Pokedex # </string>
+    <string name="placeholder_image_empty_list">Placeholder image in case of an empty list</string>
 </resources>
