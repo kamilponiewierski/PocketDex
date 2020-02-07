@@ -8,13 +8,10 @@ import retrofit2.http.Url
 
 interface PokemonApi {
     @GET ("/api/v2/pokemon")
-    fun getPage(): Call<PokemonList>?
+    fun getFirstPage(): Call<PokemonList>?
 
     @GET
     fun getNextPage(@Url url : String) : Call<PokemonList>?
-
-    @GET
-    fun getImage(@Url url : String) : String
 
     @GET
     fun getFullPokemon(@Url url : String) : Call<PokemonFullDTO>
