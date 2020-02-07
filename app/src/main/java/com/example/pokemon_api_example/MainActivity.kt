@@ -1,6 +1,9 @@
 package com.example.pokemon_api_example
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -16,18 +19,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        // setting up ViewModel
         mMainActivityViewModel =
             ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
-
         mMainActivityViewModel.init()
-
         mMainActivityViewModel.getPokemons()
             ?.observe(this, Observer { pokemonAdapter.notifyDataSetChanged() })
 
-        pokemonAdapter = PokemonAdapter(this, mMainActivityViewModel)
+        // setting up Adapter
+        pokemonAdapter = PokemonAdapter(this, mMainActivityViewModel.getPokemons()?.value!!)
+
         val listView = findViewById<ListView>(R.id.main_listview)
+        val inputSearch = findViewById<EditText>(R.id.editText)
+
+        // filtering
+        inputSearch.addTextChangedListener(object : TextWatcher
+        {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                pokemonAdapter.filter.filter(s)
+            }
+        })
 
         listView.adapter = pokemonAdapter
+        pokemonAdapter.notifyDataSetChanged()
     }
 }
