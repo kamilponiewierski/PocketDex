@@ -13,7 +13,6 @@ import retrofit2.Response
 import java.util.*
 
 
-
 class PokemonRepository private constructor(){
     private val dataSet = ArrayList<PokemonFullDTO>()
     private val service = PokemonRetrofitClientInstance.retrofitInstance?.create(PokemonApi::class.java)
@@ -33,11 +32,6 @@ class PokemonRepository private constructor(){
         return data
     }
 
-    fun getPokemonList() : List<PokemonFullDTO>
-    {
-        return dataSet
-    }
-
     private fun setPokemons() {
         val call = service?.getFirstPage()
 
@@ -52,10 +46,7 @@ class PokemonRepository private constructor(){
                 val pokemonUrls: List<PokemonDTO>? = body?.results
 
                 if (pokemonUrls != null) {
-                    for (pokemon in pokemonUrls)
-                    {
-                        addSingleFullPokemon(pokemon.url)
-                    }
+                    addFullPokemonList(pokemonUrls)
                 }
 
                 if (body?.next != null)
@@ -66,6 +57,16 @@ class PokemonRepository private constructor(){
             }
         })
 
+    }
+
+    private fun addFullPokemonList(pokemonUrls : List<PokemonDTO>)
+    {
+        Log.i("loadingDataFromAPI", "adding pokemons to dataSet")
+
+        for (pokemon in pokemonUrls)
+        {
+            addSingleFullPokemon(pokemon.url)
+        }
     }
 
     private fun addSingleFullPokemon(url : String)
@@ -86,8 +87,6 @@ class PokemonRepository private constructor(){
                 {
                     val pokemon = PokemonFullDTO(body.name, body.id, body.sprites)
                     dataSet.add(pokemon)
-
-                    Log.i("loadingDataFromAPI", "Added a pokemon to DB")
                 }
             }
         })
