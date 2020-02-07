@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
@@ -48,13 +49,19 @@ class MainActivity : AppCompatActivity() {
         })
 
         listView.adapter = pokemonAdapter
-        Handler().postDelayed(
-            {
-                pokemonAdapter.filter.filter("")
+
+        // auto-refresh view
+        val mRunnable : Runnable = object
+            : Runnable {
+            override fun run() {
+                if (!inputSearch.isFocused)
+                    pokemonAdapter.filter.filter("")
                 pokemonAdapter.notifyDataSetChanged()
-            },
-            1500
-        )
+                Log.d("viewUpdate", "view updated by runnable")
+                listView.postDelayed(this, 1000)
+            }
+        }
+        listView.postDelayed(mRunnable, 1000)
     }
 
     override fun onResume() {
