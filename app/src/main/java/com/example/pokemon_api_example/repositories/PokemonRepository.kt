@@ -33,6 +33,9 @@ class PokemonRepository private constructor(){
     }
 
     private fun setPokemons() {
+        if (dataSet.isNotEmpty())
+            return
+
         val call = service?.getFirstPage()
 
         call?.enqueue(object : Callback<PokemonList> {
