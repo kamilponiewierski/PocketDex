@@ -1,6 +1,7 @@
 package com.example.pokemon_api_example
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
@@ -47,6 +48,17 @@ class MainActivity : AppCompatActivity() {
         })
 
         listView.adapter = pokemonAdapter
+        Handler().postDelayed(
+            {
+                pokemonAdapter.filter.filter("")
+                pokemonAdapter.notifyDataSetChanged()
+            },
+            1500
+        )
+    }
+
+    override fun onResume() {
+        super.onResume()
         pokemonAdapter.notifyDataSetChanged()
     }
 }
