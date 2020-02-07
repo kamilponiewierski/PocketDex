@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 pokemonAdapter.filter.filter(s)
+                pokemonAdapter.notifyDataSetChanged()
             }
         })
 
