@@ -22,33 +22,14 @@ class MainActivityViewModel : ViewModel() {
         }
     }
 
+    fun getPokemons() : LiveData<List<PokemonFullDTO>>? {return mPokemons}
+
     //TODO loading bar
 //    fun addNewValue(pokemon : PokemonFullDTO) {
 //        mIsUpdating.value = true
 //
 //        mIsUpdating.value = false
 //    }
-
-    fun getPokemons() : MutableLiveData<List<PokemonFullDTO>>? {return mPokemons}
-
-    fun getPokemonList() : List<PokemonFullDTO> {
-        return mRepo.getPokemonList()
-    }
-
-    fun getMatchedPokemon(query : String) : List<PokemonFullDTO>
-    {
-        val regexPattern = Regex("$query.*")
-        val queryMatches = mutableListOf<PokemonFullDTO>()
-        for(poke in mRepo.getPokemonList())
-        {
-            if (poke.name.matches(regex = regexPattern))
-            {
-                queryMatches.add(poke)
-            }
-
-        }
-        return queryMatches
-    }
 
 //    fun getIsUpdating() : LiveData<Boolean>
 //    {
