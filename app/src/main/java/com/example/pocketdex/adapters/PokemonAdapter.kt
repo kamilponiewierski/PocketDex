@@ -68,7 +68,10 @@ class PokemonAdapter(context : Context, pokemons : List<PokemonFullDTO>) : BaseA
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                mFilteredPokemonData = results?.values as List<PokemonFullDTO>
+                if (results?.values != null)
+                {
+                    mFilteredPokemonData = results.values as List<PokemonFullDTO>
+                }
                 mFilteredPokemonData = mFilteredPokemonData.sortedBy { it.id }
                 notifyDataSetChanged()
             }
