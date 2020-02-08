@@ -17,10 +17,12 @@
             android:ems="10"
             android:hint="@string/search_hint"
             android:autofillHints="no"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <ListView
             android:id="@+id/main_listview"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/editText"
