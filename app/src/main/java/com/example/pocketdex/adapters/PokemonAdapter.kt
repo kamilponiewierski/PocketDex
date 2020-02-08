@@ -1,4 +1,4 @@
-package com.example.pokemon_api_example.adapters
+package com.example.pocketdex.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.pokemon_api_example.R
-import com.example.pokemon_api_example.dto.PokemonFullDTO
+import com.example.pocketdex.R
+import com.example.pocketdex.dto.PokemonFullDTO
 import java.util.*
 
 class PokemonAdapter(context : Context, pokemons : List<PokemonFullDTO>) : BaseAdapter(), Filterable

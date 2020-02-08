@@ -1,12 +1,12 @@
-package com.example.pokemon_api_example.repositories
+package com.example.pocketdex.repositories
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.pokemon_api_example.PokemonApi
-import com.example.pokemon_api_example.PokemonRetrofitClientInstance
-import com.example.pokemon_api_example.dto.PokemonDTO
-import com.example.pokemon_api_example.dto.PokemonFullDTO
-import com.example.pokemon_api_example.dto.PokemonList
+import com.example.pocketdex.PokemonApi
+import com.example.pocketdex.PokemonRetrofitClientInstance
+import com.example.pocketdex.dto.PokemonDTO
+import com.example.pocketdex.dto.PokemonFullDTO
+import com.example.pocketdex.dto.PokemonList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

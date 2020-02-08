@@ -14,7 +14,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.example.pokemon_api_example"
+        applicationId 'com.example.pocketdex'
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1

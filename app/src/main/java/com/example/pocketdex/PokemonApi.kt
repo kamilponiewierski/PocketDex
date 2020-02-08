@@ -1,7 +1,7 @@
-package com.example.pokemon_api_example
+package com.example.pocketdex
 
-import com.example.pokemon_api_example.dto.PokemonFullDTO
-import com.example.pokemon_api_example.dto.PokemonList
+import com.example.pocketdex.dto.PokemonFullDTO
+import com.example.pocketdex.dto.PokemonList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Url

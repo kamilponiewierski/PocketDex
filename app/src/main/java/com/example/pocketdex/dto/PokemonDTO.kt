@@ -1,4 +1,4 @@
-package com.example.pokemon_api_example.dto
+package com.example.pocketdex.dto
 
 import com.google.gson.annotations.SerializedName
 

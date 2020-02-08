@@ -1,10 +1,10 @@
-package com.example.pokemon_api_example.viewmodels
+package com.example.pocketdex.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.pokemon_api_example.dto.*
+import com.example.pocketdex.dto.*
 
 import androidx.lifecycle.ViewModel
-import com.example.pokemon_api_example.repositories.PokemonRepository
+import com.example.pocketdex.repositories.PokemonRepository
 
 class MainActivityViewModel : ViewModel() {
     private var mPokemons : MutableLiveData<List<PokemonFullDTO>>? = null

@@ -1,4 +1,4 @@
-package com.example.pokemon_api_example
+package com.example.pocketdex
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,8 +10,8 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.pokemon_api_example.adapters.PokemonAdapter
-import com.example.pokemon_api_example.viewmodels.MainActivityViewModel
+import com.example.pocketdex.adapters.PokemonAdapter
+import com.example.pocketdex.viewmodels.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mMainActivityViewModel : MainActivityViewModel
