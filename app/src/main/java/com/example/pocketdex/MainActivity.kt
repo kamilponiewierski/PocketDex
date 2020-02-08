@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.pocketdex.adapters.PokemonAdapter
 import com.example.pocketdex.viewmodels.MainActivityViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mMainActivityViewModel : MainActivityViewModel
@@ -63,11 +64,11 @@ class MainActivity : AppCompatActivity() {
         val mRunnable : Runnable = object
             : Runnable {
             override fun run() {
-                if (!inputSearch.isFocused)
-                    pokemonAdapter.filter.filter("")
+                pokemonAdapter.filter.filter(editText.text)
+
                 pokemonAdapter.notifyDataSetChanged()
                 Log.d("viewUpdate", "view updated by runnable")
-                listView.postDelayed(this, 1000)
+                listView.postDelayed(this, 1500)
             }
         }
         listView.postDelayed(mRunnable, 1000)
