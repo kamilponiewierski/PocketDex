@@ -6,4 +6,5 @@
     <string name="pokemon_sprite">pokemon sprite</string>
     <string name="pokedex_number">Pokedex # </string>
     <string name="placeholder_image_empty_list">Placeholder image in case of an empty list</string>
+    <string name="image_empty_search">Image indicating empty search result</string>
 </resources>

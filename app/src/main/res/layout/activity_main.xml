@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -23,16 +24,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/editText"
-            android:layout_marginTop="10dp"
             android:autofillHints='"no"' />
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progress_bar"
             android:layout_centerInParent="true"
             android:visibility="invisible">
         </ProgressBar>
+
+        <ImageView
+            android:id="@+id/empty_query"
+            android:contentDescription="@string/image_empty_search"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+
+            android:layout_below="@id/editText"/>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

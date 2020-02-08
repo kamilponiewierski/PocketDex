@@ -1,11 +1,11 @@
 package com.example.pokemon_api_example
 
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -32,6 +32,14 @@ class MainActivity : AppCompatActivity() {
         pokemonAdapter = PokemonAdapter(this, mMainActivityViewModel.getPokemons()?.value!!)
 
         val listView = findViewById<ListView>(R.id.main_listview)
+
+        // setting up empty view
+        val emptyView = findViewById<ImageView>(R.id.empty_query)
+        val emptyQueryImage = resources.getDrawable(R.drawable.empty_list_image,null)
+        emptyView.setImageDrawable(emptyQueryImage)
+        listView.emptyView = emptyView
+
+        // searchbar
         val inputSearch = findViewById<EditText>(R.id.editText)
 
         // filtering
