@@ -9,7 +9,7 @@ import com.example.pokemon_api_example.repositories.PokemonRepository
 class MainActivityViewModel : ViewModel() {
     private var mPokemons : MutableLiveData<List<PokemonFullDTO>>? = null
     private lateinit var mRepo : PokemonRepository
-    private var mIsUpdating : MutableLiveData<Boolean> = MutableLiveData()
+//    private var mIsUpdating : MutableLiveData<Boolean> = MutableLiveData()
 
     fun init()
     {
